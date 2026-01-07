@@ -39,3 +39,15 @@ ${mensagem}
 
   window.location.href = mailtoLink;
 }
+
+// Abrir cronograma do Programa de Novos Vendedores (Canva)
+function abrirTurma(mes) {
+  const anoAtual = new Date().getFullYear();
+
+  const url =
+    'https://capacitacaovendedor.my.canva.site/' +
+    'turma-' + mes + '-' + anoAtual;
+
+  window.open(url, '_blank');
+}
+
