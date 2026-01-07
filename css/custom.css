@@ -56,3 +56,26 @@ body {
   padding: 20px 0;
 }
 
+/* Card com altura fixa */
+.curso-card {
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imagem padronizada */
+.curso-img img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Conteúdo alinhado */
+.curso-card .card-content {
+  flex-grow: 1;
+}
+
+/* Ajuste do reveal */
+.curso-card .card-reveal {
+  overflow-y: auto;
+}
+
