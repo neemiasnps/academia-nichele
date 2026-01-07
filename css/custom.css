@@ -79,3 +79,10 @@ body {
   overflow-y: auto;
 }
 
+/* Ajuste do título dos cards */
+.curso-card .card-title {
+  font-size: 1.1rem;   /* padrão é maior, aqui fica mais equilibrado */
+  line-height: 1.3;
+  font-weight: 500;
+}
+
