@@ -90,4 +90,29 @@ body {
   font-size: 18px;
 }
 
+/* Hover visual nos cards de cursos */
+.curso-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.curso-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.curso-card:hover .curso-img img {
+  filter: brightness(0.95);
+}
+
+.curso-card .card-title i {
+  transition: transform 0.3s ease;
+}
+
+.curso-card:hover .card-title i {
+  transform: rotate(90deg);
+}
+
+
+
 
