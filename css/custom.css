@@ -1,1 +1,58 @@
+:root {
+  --cor-primaria: #0d47a1; /* azul - ajustar depois */
+  --cor-secundaria: #c62828; /* vermelho - ajustar depois */
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+.logo {
+  height: 48px;
+  margin-top: 8px;
+}
+
+.nav-wrapper {
+  background-color: var(--cor-primaria);
+}
+
+.btn-primary {
+  background-color: var(--cor-primaria);
+}
+
+.btn-cta {
+  background-color: var(--cor-secundaria);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.hero {
+  padding: 80px 0;
+}
+
+.hero h1 {
+  font-weight: 500;
+}
+
+.hero-buttons a {
+  margin-right: 10px;
+}
+
+.card i {
+  color: var(--cor-primaria);
+}
+
+.cta-final {
+  background-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.page-footer {
+  background-color: #263238;
+  padding: 20px 0;
+}
 
