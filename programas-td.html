@@ -18,175 +18,157 @@
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="nav-extended">
-    <div class="nav-wrapper container">
-      <a href="index.html" class="brand-logo">
-        <img src="img/logo.png" alt="Academia Nichele" class="logo">
-      </a>
-      <a href="#" data-target="mobile-menu" class="sidenav-trigger">
-        <i class="material-icons">menu</i>
-      </a>
+<!-- NAVBAR -->
+<nav class="nav-extended">
+  <div class="nav-wrapper container">
+    <a href="index.html" class="brand-logo">
+      <img src="img/logo.png" alt="Academia Nichele" class="logo">
+    </a>
+    <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
 
-      <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="cursos-presenciais.html">Cursos Presenciais</a></li>
-        <li><a href="#">Cursos EAD</a></li>
-        <li><a href="programas-td.html" class="active">Programas T&D</a></li>
-        <li><a href="biblioteca-nichele.html">Biblioteca Nichele</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </div>
-  </nav>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cursos-presenciais.html">Cursos Presenciais</a></li>
+      <li><a href="#">Cursos EAD</a></li>
+      <li class="active"><a href="programas-td.html">Programas T&D</a></li>
+      <li><a href="biblioteca-nichele.html">Biblioteca Nichele</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- MENU MOBILE -->
-  <ul class="sidenav" id="mobile-menu">
-    <li><a href="index.html"><i class="material-icons">home</i>Início</a></li>
-    <li><a href="cursos-presenciais.html"><i class="material-icons">school</i>Cursos Presenciais</a></li>
-    <li><a href="#"><i class="material-icons">computer</i>Cursos EAD</a></li>
-    <li><a href="programas-td.html"><i class="material-icons">groups</i>Programas T&D</a></li>
-    <li><a href="biblioteca-nichele.html"><i class="material-icons">menu_book</i>Biblioteca Nichele</a></li>
-    <li><a href="contato.html"><i class="material-icons">email</i>Contato</a></li>
-  </ul>
+<!-- MENU MOBILE -->
+<ul class="sidenav" id="mobile-menu">
+  <li><a href="index.html"><i class="material-icons">home</i>Início</a></li>
+  <li><a href="cursos-presenciais.html"><i class="material-icons">school</i>Cursos Presenciais</a></li>
+  <li><a href="#"><i class="material-icons">computer</i>Cursos EAD</a></li>
+  <li><a href="programas-td.html"><i class="material-icons">groups</i>Programas T&D</a></li>
+  <li><a href="biblioteca-nichele.html"><i class="material-icons">menu_book</i>Biblioteca Nichele</a></li>
+  <li><a href="contato.html"><i class="material-icons">email</i>Contato</a></li>
+</ul>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h3>Programas de Treinamento e Desenvolvimento</h3>
-      <p>
-        Os Programas T&D são formações estruturadas, compostas por cursos presenciais
-        e prática em loja, com foco no desenvolvimento profissional.
-      </p>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h3>Programas de Treinamento e Desenvolvimento</h3>
+    <p>
+      Programas estruturados de formação, com cursos presenciais
+      e prática em loja, voltados ao desenvolvimento profissional.
+    </p>
+  </div>
+</section>
 
-  <!-- CONTEÚDO -->
-  <section class="section">
-    <div class="container">
+<!-- PROGRAMAS -->
+<section class="section">
+  <div class="container">
 
-      <div class="row">
+    <div class="row">
 
-        <!-- PROGRAMA NOVOS VENDEDORES -->
-        <div class="col s12 m6 l4">
-          <div class="card curso-card">
-            <div class="card-content">
-              <span class="card-title activator">
-                Programa de Capacitação de Novos Vendedores
-                <i class="material-icons right">more_vert</i>
-              </span>
+      <!-- NOVOS VENDEDORES -->
+      <div class="col s12 m6 l4">
+        <div class="card curso-card">
+          <div class="card-image curso-img">
+            <img src="https://i.postimg.cc/mgKDW6C4/novos_vendedores.png" alt="Programa Novos Vendedores">
+          </div>
 
-              <p>
-                Formação destinada a vendedores recém-contratados ou promovidos.
+          <div class="card-content">
+            <span class="card-title"><strong>Programa de Capacitação de Novos Vendedores</strong></span>
+            <p>
+              Formação mensal para novos vendedores ou colaboradores promovidos,
+              combinando aulas presenciais e prática em loja.
+            </p>
+          </div>
+
+          <div class="card-action">
+            <details>
+              <summary class="btn btn-outline">Ver detalhes</summary>
+
+              <p style="margin-top: 15px;">
+                Selecione o mês para acessar o cronograma da turma:
               </p>
 
-              <p>
-                <strong>Duração:</strong> 13 dias em aula + 15 dias de prática em loja.
-              </p>
-            </div>
-
-            <div class="card-reveal">
-              <span class="card-title">
-                Cronograma Anual <i class="material-icons right">close</i>
-              </span>
-
-              <p>Selecione o mês para visualizar a turma:</p>
-
-              <div class="meses-grid">
-                <a href="#" onclick="abrirTurma('janeiro')" class="btn btn-outline">Jan</a>
-                <a href="#" onclick="abrirTurma('fevereiro')" class="btn btn-outline">Fev</a>
-                <a href="#" onclick="abrirTurma('marco')" class="btn btn-outline">Mar</a>
-                <a href="#" onclick="abrirTurma('abril')" class="btn btn-outline">Abr</a>
-                <a href="#" onclick="abrirTurma('maio')" class="btn btn-outline">Mai</a>
-                <a href="#" onclick="abrirTurma('junho')" class="btn btn-outline">Jun</a>
-                <a href="#" onclick="abrirTurma('julho')" class="btn btn-outline">Jul</a>
-                <a href="#" onclick="abrirTurma('agosto')" class="btn btn-outline">Ago</a>
-                <a href="#" onclick="abrirTurma('setembro')" class="btn btn-outline">Set</a>
-                <a href="#" onclick="abrirTurma('outubro')" class="btn btn-outline">Out</a>
-                <a href="#" onclick="abrirTurma('novembro')" class="btn btn-outline">Nov</a>
-                <a href="#" onclick="abrirTurma('dezembro')" class="btn btn-outline">Dez</a>
+              <div class="center-align">
+                <a onclick="abrirTurma('janeiro')" class="btn-small">Jan</a>
+                <a onclick="abrirTurma('fevereiro')" class="btn-small">Fev</a>
+                <a onclick="abrirTurma('marco')" class="btn-small">Mar</a>
+                <a onclick="abrirTurma('abril')" class="btn-small">Abr</a>
+                <a onclick="abrirTurma('maio')" class="btn-small">Mai</a>
+                <a onclick="abrirTurma('junho')" class="btn-small">Jun</a>
+                <a onclick="abrirTurma('julho')" class="btn-small">Jul</a>
+                <a onclick="abrirTurma('agosto')" class="btn-small">Ago</a>
+                <a onclick="abrirTurma('setembro')" class="btn-small">Set</a>
+                <a onclick="abrirTurma('outubro')" class="btn-small">Out</a>
+                <a onclick="abrirTurma('novembro')" class="btn-small">Nov</a>
+                <a onclick="abrirTurma('dezembro')" class="btn-small">Dez</a>
               </div>
-            </div>
+            </details>
           </div>
         </div>
+      </div>
 
-        <!-- PDL -->
-        <div class="col s12 m6 l4">
-          <div class="card curso-card">
-            <div class="card-content">
-              <span class="card-title activator">
-                PDL – Programa de Desenvolvimento de Líderes
-                <i class="material-icons right">more_vert</i>
-              </span>
+      <!-- PDL -->
+      <div class="col s12 m6 l4">
+        <div class="card curso-card">
+          <div class="card-image curso-img">
+            <img src="https://i.postimg.cc/138tTZn5/pdl.webp" alt="Programa de Desenvolvimento de Líderes">
+          </div>
 
-              <p>
-                Programa voltado ao desenvolvimento de competências de liderança.
-              </p>
-            </div>
+          <div class="card-content">
+            <span class="card-title"><strong>PDL – Programa de Desenvolvimento de Líderes</strong></span>
+            <p>
+              Programa voltado ao fortalecimento das competências de liderança
+              e gestão de equipes.
+            </p>
+          </div>
 
-            <div class="card-reveal">
-              <span class="card-title">
-                Informações <i class="material-icons right">close</i>
-              </span>
-
-              <p>
-                O cronograma deste programa está em definição.
-              </p>
-
-              <p>
-                Para mais informações, entre em contato com o setor de
-                <strong>Recursos Humanos</strong>.
-              </p>
-            </div>
+          <div class="card-action">
+            <p>
+              Cronograma em definição.<br>
+              Para mais informações, entre em contato com o RH.
+            </p>
           </div>
         </div>
+      </div>
 
-        <!-- IMPULSIONA -->
-        <div class="col s12 m6 l4">
-          <div class="card curso-card">
-            <div class="card-content">
-              <span class="card-title activator">
-                Impulsiona – Formação de Novos Líderes
-                <i class="material-icons right">more_vert</i>
-              </span>
+      <!-- IMPULSIONA -->
+      <div class="col s12 m6 l4">
+        <div class="card curso-card">
+          <div class="card-image curso-img">
+            <img src="https://i.postimg.cc/bwZJMjDJ/impulsiona.jpg" alt="Programa Impulsiona">
+          </div>
 
-              <p>
-                Programa destinado à preparação de colaboradores para posições
-                de liderança.
-              </p>
-            </div>
+          <div class="card-content">
+            <span class="card-title"><strong>Impulsiona – Formação de Novos Líderes</strong></span>
+            <p>
+              Programa de preparação para colaboradores com potencial de liderança.
+            </p>
+          </div>
 
-            <div class="card-reveal">
-              <span class="card-title">
-                Informações <i class="material-icons right">close</i>
-              </span>
-
-              <p>
-                O cronograma anual ainda está em definição.
-              </p>
-
-              <p>
-                Em caso de dúvidas, procure o
-                <strong>RH da sua unidade</strong>.
-              </p>
-            </div>
+          <div class="card-action">
+            <p>
+              Cronograma em definição.<br>
+              Para mais informações, entre em contato com o RH.
+            </p>
           </div>
         </div>
-
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="page-footer">
-    <div class="container center-align">
-      © 2026 Academia Corporativa Nichele – Todos os direitos reservados
-    </div>
-  </footer>
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div class="container center-align">
+    © 2026 Academia Corporativa Nichele – Todos os direitos reservados
+  </div>
+</footer>
 
-  <!-- Materialize JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/main.js"></script>
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
