@@ -59,7 +59,7 @@ body {
 
 /* Card com altura fixa */
 .curso-card {
-  height: auto;
+  height: 400px;
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
@@ -158,6 +158,11 @@ body {
 /* Ajuste do botão */
 .card-action-whats .btn-floating {
   box-shadow: none;
+}
+
+/* Ícone do WhatsApp em branco */
+.card-action-whats .btn-floating i {
+  color: #ffffff;
 }
 
 
