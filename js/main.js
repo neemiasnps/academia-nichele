@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift();
+      linhas.shift(); // remove cabeçalho
 
       const container = document.getElementById('lista-cursos');
 
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const situacao = colunas[6]?.trim().toLowerCase();
 
         if (situacao !== 'ativo') return;
-        if (!nome || !imagem) return;
 
         const card = `
           <div class="col s12 m6 l4">
@@ -111,7 +110,5 @@ document.addEventListener('DOMContentLoaded', function () {
         container.insertAdjacentHTML('beforeend', card);
       });
     })
-    .catch(error => {
-      console.error('Erro ao carregar cursos:', error);
-    });
+    .catch(error => console.error('Erro ao carregar cursos:', error));
 });
