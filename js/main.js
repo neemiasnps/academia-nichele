@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const card = `
           <div class="col s12 m6 l4">
-            <div class="card medium">
+            <div class="card curso-card">
 
               <div class="card-image curso-img">
                 <img class="activator" src="${imagem}" alt="${nome}">
