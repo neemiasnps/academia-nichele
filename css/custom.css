@@ -165,6 +165,25 @@ body {
   color: #ffffff;
 }
 
+/* Texto padrão dos cards (descrição, público, carga horária) */
+.curso-card .card-content p {
+  font-size: 0.9rem;      /* um pouco menor que o título */
+  line-height: 1.45;      /* melhora a leitura */
+  color: #4a4a4a;         /* cinza escuro */
+  margin-top: 8px;
+}
+
+/* Texto dentro do card-reveal (objetivo) */
+.curso-card .card-reveal p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #424242;
+}
+
+/* Labels como Público e Carga horária */
+.curso-card .card-content strong {
+  font-weight: 600;       /* destaque sem exagero */
+}
 
 
 
