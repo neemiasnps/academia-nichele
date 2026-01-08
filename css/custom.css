@@ -135,6 +135,28 @@ body {
   }
 }
 
+/* Card Action - WhatsApp */
+.card-action-whats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px; /* aumenta a altura */
+  padding: 16px;
+}
+
+/* Texto da ação */
+.card-action-whats .action-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none; /* remove maiúsculas forçadas */
+  color: #2e2e2e;
+}
+
+/* Ajuste do botão */
+.card-action-whats .btn-floating {
+  box-shadow: none;
+}
+
 
 
 
