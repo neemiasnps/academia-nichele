@@ -141,7 +141,9 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 70px; /* aumenta a altura */
-  padding: 16px;
+  /*padding: 16px;*/
+  padding: 16px 24px;
+  position: absolute;
 }
 
 /* Texto da ação */
