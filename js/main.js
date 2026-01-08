@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       linhas.forEach(linha => {
         if (!linha.trim()) return;
 
-        const colunas = linha.split(';');
+        const colunas = linha.split(',');
 
         const nome = colunas[1];
         const carga = colunas[2];
