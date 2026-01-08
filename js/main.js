@@ -51,7 +51,7 @@ function abrirTurma(mes) {
   window.open(url, '_blank');
 }
 
-// carregar os card de cursos presenciais
+// Carregar os card de cursos presenciais
 document.addEventListener('DOMContentLoaded', function () {
 
   const urlPlanilha =
@@ -60,13 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch(urlPlanilha)
     .then(response => response.text())
     .then(csv => {
+
       const linhas = csv.split('\n');
-      linhas.shift(); // remove cabeçalho
+      linhas.shift();
 
       const container = document.getElementById('lista-cursos');
 
       linhas.forEach(linha => {
-        const colunas = linha.split(',');
+        if (!linha.trim()) return;
+
+        const colunas = linha.split(';');
 
         const nome = colunas[1];
         const carga = colunas[2];
@@ -76,15 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const situacao = colunas[6]?.trim().toLowerCase();
 
         if (situacao !== 'ativo') return;
+        if (!nome || !imagem) return;
 
         const card = `
           <div class="col s12 m6 l4">
             <div class="card curso-card">
-
               <div class="card-image curso-img">
                 <img class="activator" src="${imagem}" alt="${nome}">
               </div>
-
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
                   ${nome}
@@ -95,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   <strong>Carga horária:</strong> ${carga}
                 </p>
               </div>
-
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">
                   Objetivo
@@ -103,18 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 </span>
                 <p>${objetivo}</p>
               </div>
-
             </div>
           </div>
         `;
 
         container.insertAdjacentHTML('beforeend', card);
       });
-
     })
     .catch(error => {
       console.error('Erro ao carregar cursos:', error);
     });
-
 });
-
