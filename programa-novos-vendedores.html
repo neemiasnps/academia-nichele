@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Programa de Novos Vendedores | Academia Nichele</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-wrapper container">
+    <a href="index.html" class="brand-logo">
+      <img src="img/logo.png" class="logo" alt="logo">
+    </a>
+    <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="programas-td.html">Voltar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-menu">
+  <li><a href="programas-td.html">Voltar</a></li>
+</ul>
+
+<!-- CONTEÚDO -->
+<section class="section">
+  <div class="container">
+
+    <h4>Programa de Capacitação de Novos Vendedores</h4>
+
+    <p>
+      Programa estruturado para capacitação de novos vendedores
+      contratados ou promovidos, com foco no aprendizado prático
+      e aplicação em loja.
+    </p>
+
+    <ul class="collection">
+      <li class="collection-item"><strong>Duração:</strong> Aproximadamente 28 dias</li>
+      <li class="collection-item"><strong>Formato:</strong> Presencial + prática em loja</li>
+      <li class="collection-item"><strong>Aulas:</strong> 13 dias em sala</li>
+      <li class="collection-item"><strong>Prática:</strong> 15 dias em loja</li>
+    </ul>
+
+    <h5>Cronograma por mês</h5>
+    <p>Selecione o mês para acessar o cronograma da turma:</p>
+
+    <div class="row center-align">
+      <a onclick="abrirTurma('janeiro')" class="btn-small">Jan</a>
+      <a onclick="abrirTurma('fevereiro')" class="btn-small">Fev</a>
+      <a onclick="abrirTurma('marco')" class="btn-small">Mar</a>
+      <a onclick="abrirTurma('abril')" class="btn-small">Abr</a>
+      <a onclick="abrirTurma('maio')" class="btn-small">Mai</a>
+      <a onclick="abrirTurma('junho')" class="btn-small">Jun</a>
+      <a onclick="abrirTurma('julho')" class="btn-small">Jul</a>
+      <a onclick="abrirTurma('agosto')" class="btn-small">Ago</a>
+      <a onclick="abrirTurma('setembro')" class="btn-small">Set</a>
+      <a onclick="abrirTurma('outubro')" class="btn-small">Out</a>
+      <a onclick="abrirTurma('novembro')" class="btn-small">Nov</a>
+      <a onclick="abrirTurma('dezembro')" class="btn-small">Dez</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="container center-align">
+    © 2026 Academia Corporativa Nichele
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
