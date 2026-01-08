@@ -80,10 +80,10 @@ body {
 }
 
 /* Título dos cards de cursos */
-.curso-card .card-title {
-  font-size: 1.05rem;   /* menor e mais equilibrado */
+.curso-card .card-content .card-title {
+  font-size: 1.05rem;
   line-height: 1.3;
-  font-weight: 700; /* negrito */
+  font-weight: 700;
 }
 
 .curso-card .card-title i.material-icons {
