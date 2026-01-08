@@ -113,6 +113,10 @@ body {
   transform: rotate(90deg);
 }
 
+.curso-card .btn-floating .material-icons {
+  color: #ffffff;
+}
+
 
 
 
