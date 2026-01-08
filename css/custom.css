@@ -1,28 +1,41 @@
+/* =========================================================
+   VARIÁVEIS DE CORES DO SISTEMA
+   Centraliza as cores institucionais para fácil manutenção
+========================================================= */
 :root {
-  --cor-primaria: #17436a; /* azul - ajustar depois */
-  --cor-secundaria: #bb1518; /* vermelho - ajustar depois */
+  --cor-primaria: #17436a;   /* Azul institucional */
+  --cor-secundaria: #bb1518; /* Vermelho institucional */
 }
 
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+========================================================= */
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif; /* Fonte padrão do site */
 }
 
+/* =========================================================
+   LOGO E NAVBAR
+========================================================= */
 .logo {
-  height: 16px;
-  width: auto;
-  margin-top: 8px;
+  height: 16px;       /* Reduz altura da logo sem alterar o arquivo */
+  width: auto;        /* Mantém proporção */
+  margin-top: 8px;    /* Alinhamento vertical */
 }
 
 .nav-wrapper {
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-primaria); /* Fundo da navbar */
 }
 
+/* =========================================================
+   BOTÕES
+========================================================= */
 .btn-primary {
-  background-color: var(--cor-primaria);
+  background-color: var(--cor-primaria); /* Botão principal */
 }
 
 .btn-cta {
-  background-color: var(--cor-secundaria);
+  background-color: var(--cor-secundaria); /* Botão de destaque (CTA) */
 }
 
 .btn-outline {
@@ -31,8 +44,11 @@ body {
   color: var(--cor-primaria);
 }
 
+/* =========================================================
+   HERO (PÁGINA INICIAL)
+========================================================= */
 .hero {
-  padding: 80px 0;
+  padding: 80px 0; /* Espaçamento vertical */
 }
 
 .hero h1 {
@@ -43,61 +59,100 @@ body {
   margin-right: 10px;
 }
 
+/* =========================================================
+   ÍCONES GERAIS
+========================================================= */
 .card i {
-  color: var(--cor-primaria);
+  color: var(--cor-primaria); /* Ícones padrão dos cards */
 }
 
+/* =========================================================
+   CTA FINAL
+========================================================= */
 .cta-final {
   background-color: var(--cor-primaria);
-  color: #fff;
+  color: #ffffff;
 }
 
+/* =========================================================
+   RODAPÉ
+========================================================= */
 .page-footer {
   background-color: #263238;
   padding: 20px 0;
 }
 
-/* Card com altura fixa */
+/* =========================================================
+   CARD DE CURSOS (PADRÃO)
+========================================================= */
 .curso-card {
-  height: 400px;
+  height: 400px;                 /* Altura fixa para alinhamento */
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
+  margin-bottom: 32px;           /* Espaço vertical entre cards */
+  transition: all 0.3s ease;     /* Suavidade no hover */
+  cursor: pointer;
 }
 
-/* Imagem padronizada */
+/* =========================================================
+   IMAGEM DO CARD
+========================================================= */
 .curso-img img {
-  height: 210px;
-  object-fit: cover;
+  height: 210px;     /* Altura padronizada */
+  object-fit: cover; /* Evita distorção */
 }
 
-/* Conteúdo alinhado */
+/* =========================================================
+   CONTEÚDO DO CARD
+========================================================= */
 .curso-card .card-content {
-  flex-grow: 1;
+  flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
 }
 
-/* Ajuste do reveal */
-.curso-card .card-reveal {
-  overflow-y: auto;
+/* Texto padrão do card (não título) */
+.curso-card .card-content p {
+  font-size: 0.9rem;
+  /*line-height: 1.45;*/
+  color: #4a4a4a;
+  margin-top: 8px;
 }
 
-/* Título dos cards de cursos */
+/* Destaque leve para labels */
+.curso-card .card-content strong {
+  font-weight: 400;
+}
+
+/* =========================================================
+   TÍTULO DO CARD
+========================================================= */
 .curso-card .card-content .card-title {
-  font-size: 0.95rem;
+  font-size: 0.95rem; /* Título um pouco menor */
   line-height: 1.3;
   font-weight: 700;
 }
 
+/* Ícone de ativação do reveal */
 .curso-card .card-title i.material-icons {
   font-size: 18px;
+  transition: transform 0.3s ease;
 }
 
-/* Hover visual nos cards de cursos */
-.curso-card {
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* =========================================================
+   CARD REVEAL (OBJETIVO)
+========================================================= */
+.curso-card .card-reveal {
+  overflow-y: auto; /* Scroll se o texto for grande */
 }
 
+.curso-card .card-reveal p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #424242;
+}
+
+/* =========================================================
+   HOVER VISUAL DO CARD
+========================================================= */
 .curso-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
@@ -107,84 +162,62 @@ body {
   filter: brightness(0.95);
 }
 
-.curso-card .card-title i {
-  transition: transform 0.3s ease;
-}
-
 .curso-card:hover .card-title i {
   transform: rotate(90deg);
 }
 
+/* =========================================================
+   BOTÃO FLUTUANTE (WHATSAPP)
+========================================================= */
 .curso-card .btn-floating .material-icons {
-  color: #ffffff;
+  color: #ffffff; /* Ícone branco */
 }
 
-/* Container dos meses */
-.meses-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;               /* Espaço entre os botões */
-  margin-top: 12px;
-}
-
-/* Ajuste fino no mobile */
-@media (max-width: 600px) {
-  .meses-container a {
-    min-width: 52px;      /* Mantém tamanho uniforme */
-    text-align: center;
-  }
-}
-
-/* Card Action - WhatsApp */
+/* =========================================================
+   CARD ACTION - WHATSAPP
+========================================================= */
 .card-action-whats {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70px; /* aumenta a altura */
-  /*padding: 16px;*/
+  min-height: 70px;     /* Aumenta área clicável */
   padding: 16px 24px;
   position: absolute;
 }
 
-/* Texto da ação */
+/* Texto do card-action */
 .card-action-whats .action-text {
   font-size: 0.95rem;
-  font-weight: 400;
-  text-transform: none; /* remove maiúsculas forçadas */
+  font-weight: 400;     /* Remove negrito */
+  text-transform: none;/* Evita uppercase automático */
   color: #2e2e2e;
 }
 
-/* Ajuste do botão */
+/* Botão WhatsApp */
 .card-action-whats .btn-floating {
   box-shadow: none;
 }
 
-/* Ícone do WhatsApp em branco */
+/* Ícone do WhatsApp */
 .card-action-whats .btn-floating i {
   color: #ffffff;
 }
 
-/* Texto padrão dos cards (descrição, público, carga horária) */
-.curso-card .card-content p {
-  font-size: 0.9rem;      /* um pouco menor que o título */
-  line-height: 1.45;      /* melhora a leitura */
-  color: #4a4a4a;         /* cinza escuro */
-  margin-top: 8px;
+/* =========================================================
+   CONTAINER DE MESES (PROGRAMAS T&D)
+========================================================= */
+.meses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;          /* Espaço entre botões */
+  margin-top: 12px;
 }
 
-/* Texto dentro do card-reveal (objetivo) */
-.curso-card .card-reveal p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #424242;
+/* Ajustes específicos para mobile */
+@media (max-width: 600px) {
+  .meses-container a {
+    min-width: 52px;
+    text-align: center;
+  }
 }
-
-/* Labels como Público e Carga horária */
-.curso-card .card-content strong {
-  font-weight: 600;       /* destaque sem exagero */
-}
-
-
-
-
