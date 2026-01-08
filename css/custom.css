@@ -59,7 +59,7 @@ body {
 
 /* Card com altura fixa */
 .curso-card {
-  height: 360px;
+  height: auto;
   display: flex;
   flex-direction: column;
   margin-bottom: 32px;
