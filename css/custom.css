@@ -83,7 +83,7 @@ body {
 
 /* Título dos cards de cursos */
 .curso-card .card-content .card-title {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.3;
   font-weight: 700;
 }
@@ -150,7 +150,7 @@ body {
 /* Texto da ação */
 .card-action-whats .action-text {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 400;
   text-transform: none; /* remove maiúsculas forçadas */
   color: #2e2e2e;
 }
