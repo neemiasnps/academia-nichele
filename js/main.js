@@ -55,11 +55,11 @@ function abrirTurma(mes) {
 document.addEventListener('DOMContentLoaded', function () {
 
   const urlPlanilha =
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=0&single=true&output=csv';
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=0&single=true&output=tsv';
 
   fetch(urlPlanilha)
     .then(response => response.text())
-    .then(csv => {
+    .then(tsv => {
 
       const linhas = csv.split('\n');
       linhas.shift();
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       linhas.forEach(linha => {
         if (!linha.trim()) return;
 
-        const colunas = linha.split(',');
+        const colunas = linha.split('\t');
 
         const nome = colunas[1];
         const carga = colunas[2];
