@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(response => response.text())
     .then(tsv => {
 
-      const linhas = csv.split('\n');
+      const linhas = tsv.split('\n');
       linhas.shift();
 
       const container = document.getElementById('lista-cursos');
