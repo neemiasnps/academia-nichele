@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
                      target="_blank"
                      class="btn-floating btn-small green"
                      title="Solicitar inscrição">
-                    <i class="material-icons">whatsapp</i>
+                    <i class="material-icons">info</i>
                   </a>
               </div>
               </div>
