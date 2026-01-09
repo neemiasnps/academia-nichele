@@ -13,12 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Carousels
-  const carousels = document.querySelectorAll('.carousel');
-  M.Carousel.init(carousels, {
+  const elems = document.querySelectorAll('.carousel');
+  const instances = M.Carousel.init(elems, {
     fullWidth: true,
     indicators: true,
     duration: 300
   });
+
+  // Autoplay
+  setInterval(function () {
+    instances.forEach(instance => {
+      instance.next();
+    });
+  }, 5000); // troca a cada 5 segundos
 
 });
 
