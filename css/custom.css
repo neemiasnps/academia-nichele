@@ -188,7 +188,8 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 70px;     /* Aumenta área clicável */
-  padding: 16px 24px;
+  /* padding: 16px 24px; */
+   padding: 20px;
   position: absolute;
 }
 
@@ -209,6 +210,13 @@ body {
 .card-action-whats .btn-floating i {
   color: #ffffff;
 }
+
+.card-action-whats .btn {
+  width: 100%;
+  text-transform: none;
+  font-weight: 400;
+}
+
 
 /* =========================================================
    CONTAINER DE MESES (PROGRAMAS T&D)
