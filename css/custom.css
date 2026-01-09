@@ -245,3 +245,36 @@ body {
     text-align: center;
   }
 }
+
+/* =========================================================
+   CONTAINER DA AGENDA DE TREINAMENTOS PONTUAIS
+========================================================= */
+
+/* Container da agenda */
+.agenda-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* proporção desktop */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+/* Iframe responsivo */
+.agenda-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 600px) {
+  .agenda-container {
+    padding-bottom: 120%; /* mais altura no celular */
+  }
+}
+
