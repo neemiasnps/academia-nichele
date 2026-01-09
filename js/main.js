@@ -176,19 +176,14 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
 
               <div class="card-action card-action-whats">
-                <div class="action-text">
-                  solicitar inscrição
-                </div>
-
-                <div class="col s4" style="text-align: right;">
-                  <a href="${linkWhats}"
-                     target="_blank"
-                     class="btn-floating btn-small green"
-                     title="Solicitar inscrição">
-                    <i class="material-icons">info_outline</i>
-                  </a>
-              </div>
-              </div>
+                <a href="${linkWhats}"
+                   target="_blank"
+                   class="btn green waves-effect waves-light"
+                   title="Solicitar inscrição">
+                    <i class="material-icons left">whatsapp</i>
+                      solicitar inscrição
+                </a>
+            </div>
 
             </div>
           </div>
