@@ -211,10 +211,19 @@ body {
   color: #ffffff;
 }
 
+/* Botão de ação do card (Solicitar inscrição) */
 .card-action-whats .btn {
   width: 100%;
   text-transform: none;
   font-weight: 400;
+  background-color: #2e7d32;      /* verde padrão */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover – muda a cor e dá leve destaque */
+.card-action-whats .btn:hover {
+  background-color: #1b5e20;      /* verde mais escuro */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 
