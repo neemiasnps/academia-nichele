@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="card-action card-action-whats">
                 <a href="${linkWhats}"
                    target="_blank"
-                   class="btn green waves-effect waves-light"
+                   class="btn btn-primary"
                    title="Solicitar inscrição">
                       solicitar inscrição
                 </a>
