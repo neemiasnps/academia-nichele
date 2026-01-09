@@ -282,7 +282,7 @@ body {
    CAROUSEL
 ========================================================= */
 
-/* Hero Carousel */
+/* HERO CAROUSEL */
 .hero-carousel {
   margin-top: 0;
 }
@@ -312,7 +312,7 @@ body {
   margin-bottom: 16px;
 }
 
-/* Mobile */
+/* MOBILE */
 @media (max-width: 600px) {
   .carousel.carousel-slider {
     height: 320px;
