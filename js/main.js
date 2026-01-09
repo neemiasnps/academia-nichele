@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     M.FormSelect.init(selects);
   }
 
+  // Carousels
+  const carousels = document.querySelectorAll('.carousel');
+  M.Carousel.init(carousels, {
+    fullWidth: true,
+    indicators: true,
+    duration: 300
+  });
+
 });
 
 // Função para envio via mailto
