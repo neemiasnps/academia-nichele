@@ -27,6 +27,13 @@ body {
   background-color: var(--cor-primaria); /* Fundo da navbar */
 }
 
+/* Recuo da logo apenas no desktop */
+@media (min-width: 993px) {
+  .nav-wrapper .brand-logo {
+    margin-left: 16px; /* ajuste fino conforme necessário */
+  }
+}
+
 /* =========================================================
    BOTÕES
 ========================================================= */
