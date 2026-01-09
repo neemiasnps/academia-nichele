@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
                    target="_blank"
                    class="btn green waves-effect waves-light"
                    title="Solicitar inscrição">
-                    <i class="material-icons left">whatsapp</i>
+                    <i class="material-icons left">create</i>
                       solicitar inscrição
                 </a>
             </div>
