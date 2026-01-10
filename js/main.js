@@ -1,18 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Menu mobile
+  /* ===============================
+     MENU MOBILE
+  =============================== */
   const sidenav = document.querySelectorAll(".sidenav");
   if (sidenav.length) {
     M.Sidenav.init(sidenav);
   }
 
-  // Selects (formulários)
+  /* ===============================
+     SELECTS (FORMULÁRIOS)
+  =============================== */
   const selects = document.querySelectorAll("select");
   if (selects.length) {
     M.FormSelect.init(selects);
   }
 
-// Função para envio via mailto
+});
+
+/* =====================================================
+   FUNÇÃO PARA ENVIO DE E-MAIL (CONTATO)
+===================================================== */
 function enviarEmail() {
 
   const nome = document.getElementById("nome")?.value || "";
@@ -38,10 +46,11 @@ ${mensagem}
   window.location.href = mailtoLink;
 }
 
-// Abrir cronograma do Programa de Novos Vendedores (Canva)
+/* =====================================================
+   ABRIR CRONOGRAMA – PROGRAMA NOVOS VENDEDORES
+===================================================== */
 function abrirTurma(mes) {
   const anoAtual = new Date().getFullYear();
-
   const url =
     'https://capacitacaovendedor.my.canva.site/' +
     'turma-' + mes + '-' + anoAtual;
@@ -49,8 +58,13 @@ function abrirTurma(mes) {
   window.open(url, '_blank');
 }
 
-// Carregar os card de cursos presenciais
+/* =====================================================
+   CARREGAR CURSOS PRESENCIAIS
+===================================================== */
 document.addEventListener('DOMContentLoaded', function () {
+
+  const container = document.getElementById('lista-cursos');
+  if (!container) return;
 
   const urlPlanilha =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=0&single=true&output=tsv';
@@ -60,9 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift(); // remove cabeçalho
-
-      const container = document.getElementById('lista-cursos');
+      linhas.shift();
 
       linhas.forEach(linha => {
         if (!linha.trim()) return;
@@ -108,11 +120,16 @@ document.addEventListener('DOMContentLoaded', function () {
         container.insertAdjacentHTML('beforeend', card);
       });
     })
-    .catch(error => console.error('Erro ao carregar cursos:', error));
+    .catch(error => console.error('Erro ao carregar cursos presenciais:', error));
 });
 
-// Carregar os cards de cursos EAD
+/* =====================================================
+   CARREGAR CURSOS EAD
+===================================================== */
 document.addEventListener('DOMContentLoaded', function () {
+
+  const container = document.getElementById('lista-cursos-ead');
+  if (!container) return;
 
   const urlPlanilha =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=1580520934&single=true&output=tsv';
@@ -122,9 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift(); // remove cabeçalho
-
-      const container = document.getElementById('lista-cursos-ead');
+      linhas.shift();
 
       linhas.forEach(linha => {
         if (!linha.trim()) return;
@@ -140,8 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (situacao !== 'ativo') return;
 
-        const mensagemWhats =
-          encodeURIComponent(`Olá! Gostaria de solicitar inscrição no curso EAD: ${nome}`);
+        const mensagemWhats = encodeURIComponent(
+          `Olá! Gostaria de solicitar inscrição no curso EAD: ${nome}`
+        );
 
         const linkWhats =
           `https://wa.me/5541998000484?text=${mensagemWhats}`;
@@ -149,11 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const card = `
           <div class="col s12 m6 l4">
             <div class="card curso-card">
-
               <div class="card-image curso-img">
                 <img class="activator" src="${imagem}" alt="${nome}">
               </div>
-
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
                   ${nome}
@@ -164,7 +178,6 @@ document.addEventListener('DOMContentLoaded', function () {
                   <strong>Carga horária:</strong> ${carga}
                 </p>
               </div>
-
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">
                   Objetivo
@@ -172,39 +185,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 </span>
                 <p>${objetivo}</p>
               </div>
-
               <div class="card-action card-action-whats">
-                <a href="${linkWhats}"
-                   target="_blank"
-                   class="btn btn-primary"
-                   title="Solicitar inscrição">
-                      solicitar inscrição
+                <a href="${linkWhats}" target="_blank" class="btn btn-primary">
+                  solicitar inscrição
                 </a>
-            </div>
-
+              </div>
             </div>
           </div>
         `;
 
         container.insertAdjacentHTML('beforeend', card);
       });
-
     })
-    .catch(error => {
-      console.error('Erro ao carregar cursos EAD:', error);
-    });
-
+    .catch(error => console.error('Erro ao carregar cursos EAD:', error));
 });
 
-// ================================
-// HERO CAROUSEL - BANNERS DINÂMICOS
-// ================================
+/* =====================================================
+   HERO CAROUSEL – BANNERS DINÂMICOS (COM AUTOPLAY + PAUSE)
+===================================================== */
 document.addEventListener('DOMContentLoaded', function () {
 
   const carouselContainer = document.getElementById('hero-carousel');
   if (!carouselContainer) return;
 
   const isMobile = window.innerWidth <= 600;
+  let autoplayInterval = null;
 
   const urlPlanilhaBanner =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=809112237&single=true&output=tsv';
@@ -214,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift(); // remove cabeçalho
+      linhas.shift();
 
       linhas.forEach(linha => {
         if (!linha.trim()) return;
@@ -248,21 +253,33 @@ document.addEventListener('DOMContentLoaded', function () {
         carouselContainer.appendChild(slide);
       });
 
-      // ✅ Inicializa o carousel UMA ÚNICA VEZ
+      // Inicializa o carousel
       const carouselInstance = M.Carousel.init(carouselContainer, {
         fullWidth: true,
         indicators: true,
         duration: 300
       });
 
-      // ✅ AUTOPLAY FUNCIONAL
-      setInterval(() => {
-        carouselInstance.next();
-      }, 5000);
+      // Funções de autoplay
+      function iniciarAutoplay() {
+        autoplayInterval = setInterval(() => {
+          carouselInstance.next();
+        }, 5000);
+      }
+
+      function pararAutoplay() {
+        clearInterval(autoplayInterval);
+      }
+
+      // Inicia autoplay
+      iniciarAutoplay();
+
+      // Pausa ao passar o mouse (desktop)
+      carouselContainer.addEventListener('mouseenter', pararAutoplay);
+
+      // Retoma ao sair do mouse
+      carouselContainer.addEventListener('mouseleave', iniciarAutoplay);
 
     })
-    .catch(error => {
-      console.error('Erro ao carregar banners:', error);
-    });
-
+    .catch(error => console.error('Erro ao carregar banners:', error));
 });
