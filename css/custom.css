@@ -321,6 +321,11 @@ body {
   color: #f1f1f1;                 /* Leve suavização do branco */
 }
 
+/* Botão fixo do carousel */
+.carousel-fixed-item {
+  bottom: 60px !important; /* sobe o botão */
+}
+
 /* =========================================================
    AJUSTES PARA MOBILE
 ========================================================= */
@@ -336,4 +341,9 @@ body {
     padding: 20px;                /* Menos padding para caber melhor */
     max-width: 90%;               /* Usa quase toda a largura da tela */
   }
+
+   .carousel-fixed-item {
+      bottom: 80px !important;
+  }
 }
+
