@@ -279,47 +279,61 @@ body {
 }
 
 /* =========================================================
-   CAROUSEL
+   CAROUSEL / HERO
+   Área principal de destaque da página
 ========================================================= */
 
-/* HERO CAROUSEL */
+/* Container do carousel no topo */
 .hero-carousel {
-  margin-top: 0;
+  margin-top: 0;                 /* Remove espaçamento superior */
 }
 
+/* Altura padrão do carousel (desktop) */
 .carousel.carousel-slider {
-  height: 420px;
+  height: 420px;                 /* Altura ideal para destaque sem exagero */
 }
 
-.carousel-item {
-  background-size: cover;
-  background-position: center;
+/* Cada slide do carousel */
+.carousel.carousel-slider .carousel-item {
+  background-size: cover;        /* Preenche o slide sem distorcer */
+  background-position: center;   /* Centraliza o foco da imagem */
+  background-repeat: no-repeat;  /* Evita repetição */
 }
 
+/* Área de conteúdo sobre a imagem (caso utilize textos) */
 .carousel-content {
-  background: rgba(0, 0, 0, 0.45);
-  padding: 32px;
-  max-width: 520px;
-  margin: auto;
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.45); /* Overlay para melhorar leitura */
+  padding: 32px;                  /* Espaçamento interno confortável */
+  max-width: 520px;               /* Limita largura para melhor leitura */
+  margin: auto;                   /* Centraliza no slide */
+  border-radius: 8px;             /* Cantos levemente arredondados */
 }
 
+/* Título do slide */
 .carousel-content h4 {
-  font-weight: 500;
+  font-weight: 500;               /* Destaque sem exagero */
+  color: #ffffff;                 /* Contraste com o fundo */
 }
 
+/* Texto complementar do slide */
 .carousel-content p {
-  margin-bottom: 16px;
+  margin-bottom: 16px;            /* Espaço antes do botão */
+  color: #f1f1f1;                 /* Leve suavização do branco */
 }
 
-/* MOBILE */
+/* =========================================================
+   AJUSTES PARA MOBILE
+========================================================= */
 @media (max-width: 600px) {
+
+  /* Reduz altura para telas menores */
   .carousel.carousel-slider {
     height: 320px;
   }
 
+  /* Ajusta o bloco de conteúdo */
   .carousel-content {
-    padding: 20px;
+    padding: 20px;                /* Menos padding para caber melhor */
+    max-width: 90%;               /* Usa quase toda a largura da tela */
   }
 }
-
