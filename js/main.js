@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
         slide.innerHTML = `
           <div class="carousel-fixed-item center" style="bottom: 40px;">
             <a href="${linkBotao}"
-               class="btn btn-large waves-effect white grey-text text-darken-3">
+               class="btn btn-primary">
               ${textoBotao}
             </a>
           </div>
