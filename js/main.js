@@ -213,3 +213,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// ================================
+// HERO CAROUSEL - BANNERS DINÂICOS
+// ================================
+document.addEventListener('DOMContentLoaded', function () {
+
+  const carouselContainer = document.getElementById('hero-carousel');
+  if (!carouselContainer) return;
+
+  const isMobile = window.innerWidth <= 600;
+
+  const urlPlanilhaBanner =
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=809112237&single=true&output=tsv';
+
+  fetch(urlPlanilhaBanner)
+    .then(response => response.text())
+    .then(tsv => {
+
+      const linhas = tsv.split('\n');
+      linhas.shift(); // remove cabeçalho
+
+      linhas.forEach(linha => {
+        if (!linha.trim()) return;
+
+        const colunas = linha.split('\t');
+
+        const textoBotao = colunas[3];
+        const linkBotao  = colunas[4];
+        const bannerDesk = colunas[5];
+        const bannerMob  = colunas[6];
+        const status     = colunas[7]?.trim().toLowerCase();
+
+        if (status !== 'ativo') return;
+
+        const banner = isMobile ? bannerMob : bannerDesk;
+
+        const slide = document.createElement('div');
+        slide.className = 'carousel-item';
+        slide.style.backgroundImage = `url('${banner}')`;
+        slide.style.backgroundSize = 'cover';
+        slide.style.backgroundPosition = 'center';
+
+        slide.innerHTML = `
+          <div class="carousel-fixed-item center" style="bottom: 40px;">
+            <a href="${linkBotao}"
+               class="btn btn-large waves-effect white grey-text text-darken-3">
+              ${textoBotao}
+            </a>
+          </div>
+        `;
+
+        carouselContainer.appendChild(slide);
+      });
+
+      // Recarrega o carousel após inserir os slides
+      const elems = document.querySelectorAll('.carousel');
+      M.Carousel.init(elems, {
+        fullWidth: true,
+        indicators: true,
+        duration: 300
+      });
+
+    })
+    .catch(error => {
+      console.error('Erro ao carregar banners:', error);
+    });
+
+});
+
