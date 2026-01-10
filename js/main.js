@@ -12,23 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     M.FormSelect.init(selects);
   }
 
-  // Carousels
-  const elems = document.querySelectorAll('.carousel');
-  const instances = M.Carousel.init(elems, {
-    fullWidth: true,
-    indicators: true,
-    duration: 300
-  });
-
-  // Autoplay
-  setInterval(function () {
-    instances.forEach(instance => {
-      instance.next();
-    });
-  }, 5000); // troca a cada 5 segundos
-
-});
-
 // Função para envio via mailto
 function enviarEmail() {
 
@@ -214,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ================================
-// HERO CAROUSEL - BANNERS DINÂICOS
+// HERO CAROUSEL - BANNERS DINÂMICOS
 // ================================
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -256,8 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         slide.innerHTML = `
           <div class="carousel-fixed-item center" style="bottom: 40px;">
-            <a href="${linkBotao}"
-               class="btn btn-primary">
+            <a href="${linkBotao}" class="btn btn-primary">
               ${textoBotao}
             </a>
           </div>
@@ -266,25 +248,21 @@ document.addEventListener('DOMContentLoaded', function () {
         carouselContainer.appendChild(slide);
       });
 
-      // Recarrega o carousel após inserir os slides
-      const elems = document.querySelectorAll('.carousel');
-      M.Carousel.init(elems, {
+      // ✅ Inicializa o carousel UMA ÚNICA VEZ
+      const carouselInstance = M.Carousel.init(carouselContainer, {
         fullWidth: true,
         indicators: true,
         duration: 300
       });
 
-      // AUTOPLAY
-      setInterval(function () {
-      instances.forEach(instance => {
-      instance.next();
-      });
-        }, 5000); // troca a cada 5 segundos
-      })
-    
+      // ✅ AUTOPLAY FUNCIONAL
+      setInterval(() => {
+        carouselInstance.next();
+      }, 5000);
+
+    })
     .catch(error => {
       console.error('Erro ao carregar banners:', error);
     });
 
 });
-
