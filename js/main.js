@@ -274,6 +274,11 @@ document.addEventListener('DOMContentLoaded', function () {
         duration: 300
       });
 
+      // AUTOPLAY
+      setInterval(() => {
+        carouselInstance.next();
+      }, 5000); // troca a cada 5 segundos
+
     })
     .catch(error => {
       console.error('Erro ao carregar banners:', error);
