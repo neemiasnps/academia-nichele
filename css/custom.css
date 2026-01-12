@@ -18,7 +18,7 @@ body {
    LOGO E NAVBAR
 ========================================================= */
 .logo {
-  height: 16px;       /* Reduz altura da logo sem alterar o arquivo */
+  height: 24px;       /* Reduz altura da logo sem alterar o arquivo */
   width: auto;        /* Mantém proporção */
   margin-top: 8px;    /* Alinhamento vertical */
 }
