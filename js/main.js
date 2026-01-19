@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
           cursosHTML += `
             <li class="collection-item">
               ${item.curso}
-              <span class="badge blue white-text">
+              <span class="new badge blue white-text">
                 ${item.carga || '—'}
               </span>
             </li>
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="collapsible-header">
               ${iconeHTML}
               ${cargo}
-              <span class="badge green white-text right">
+              <span class="new badge green white-text right">
                 ${info.totalHoras}h
               </span>
             </div>
