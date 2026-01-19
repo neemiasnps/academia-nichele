@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift(); // remove cabeçalho
+      linhas.shift();
 
       const dados = {};
 
@@ -314,9 +314,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const cargo  = colunas[0]?.trim();
         const curso  = colunas[1]?.trim();
-        const carga  = colunas[2]?.trim();
+        const carga  = colunas[2]?.trim(); // ex: 8h
         const status = colunas[3]?.trim().toLowerCase();
-        const icone  = colunas[4]?.trim() || 'school';
+        const icone  = colunas[4]?.trim(); // nome ou link
 
         if (status !== 'ativo') return;
 
@@ -328,65 +328,67 @@ document.addEventListener('DOMContentLoaded', function () {
           };
         }
 
-        // Extrai número da carga horária
-        if (carga) {
-          const horas = parseInt(carga.replace(/\D/g, ''), 10);
-          if (!isNaN(horas)) {
-            dados[cargo].totalHoras += horas;
-          }
-        }
+        // Extrai número de horas (8h -> 8)
+        const horas = parseInt(carga) || 0;
 
         dados[cargo].cursos.push({
           curso,
-          carga
+          carga,
+          horas
         });
+
+        dados[cargo].totalHoras += horas;
       });
 
       const container = document.getElementById('grades-cargos');
 
       Object.keys(dados).forEach(cargo => {
 
+        const info = dados[cargo];
+
+        // Decide se é ícone Material ou imagem
+        let avatarHTML = '';
+        if (info.icone && info.icone.startsWith('http')) {
+          avatarHTML = `
+            <img src="${info.icone}" alt="${cargo}" class="circle">
+          `;
+        } else {
+          avatarHTML = `
+            <i class="material-icons circle blue">${info.icone || 'school'}</i>
+          `;
+        }
+
         let cursosHTML = '';
 
-        dados[cargo].cursos.forEach(item => {
+        info.cursos.forEach(item => {
           cursosHTML += `
-            <li class="collection-item">
-              ${item.curso}
-              <span class="new badge blue" data-badge-caption="">
-                ${item.carga || '—'}
-              </span>
-            </li>
+            ${item.curso}
+            <span class="badge blue white-text">${item.carga}</span>
+            <br>
           `;
         });
 
         const bloco = `
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons">${dados[cargo].icone}</i>
-              ${cargo}
-              <span class="new badge green right" data-badge-caption="">
-                ${dados[cargo].totalHoras}h
+          <li class="collection-item avatar">
+            ${avatarHTML}
+
+            <span class="title"><strong>${cargo}</strong></span>
+            <p>
+              ${cursosHTML}
+            </p>
+
+            <span class="secondary-content">
+              <span class="badge green white-text">
+                ${info.totalHoras}h
               </span>
-            </div>
-            <div class="collapsible-body">
-              <ul class="collection">
-                ${cursosHTML}
-              </ul>
-            </div>
+            </span>
           </li>
         `;
 
         container.insertAdjacentHTML('beforeend', bloco);
       });
 
-      M.Collapsible.init(
-        document.querySelectorAll('.collapsible'),
-        { accordion: false }
-      );
-
     })
-    .catch(error => {
-      console.error('Erro ao carregar grades:', error);
-    });
+    .catch(error => console.error('Erro ao carregar dados:', error));
 
 });
