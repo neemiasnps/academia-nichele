@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+const collapsibles = document.querySelectorAll(".collapsible");
+  M.Collapsible.init(collapsibles, {
+    accordion: false // permite abrir vários cargos
+  });
+
 /* =====================================================
    FUNÇÃO PARA ENVIO DE E-MAIL (CONTATO)
 ===================================================== */
@@ -282,4 +287,91 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
     .catch(error => console.error('Erro ao carregar banners:', error));
+});
+
+/* =====================================================
+   GRADE DE CURSOS EAD OBRIGATÓRIOS
+===================================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const urlPlanilha =
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7CjHqVjpMrOg1LQFDLjUv1dKNfsXziIlxKD5S2_MBuC8qkuE16_kbX09gZubcov_13w6M3D-yHZ8B/pub?gid=117347237&single=true&output=tsv';
+
+  fetch(urlPlanilha)
+    .then(response => response.text())
+    .then(tsv => {
+
+      const linhas = tsv.split('\n');
+      linhas.shift(); // remove cabeçalho
+
+      const dados = {};
+
+      linhas.forEach(linha => {
+        if (!linha.trim()) return;
+
+        const colunas = linha.split('\t');
+
+        const cargo   = colunas[0]?.trim();
+        const curso   = colunas[1]?.trim();
+        const carga   = colunas[2]?.trim();
+        const status  = colunas[3]?.trim().toLowerCase();
+
+        if (status !== 'ativo') return;
+
+        if (!dados[cargo]) {
+          dados[cargo] = [];
+        }
+
+        dados[cargo].push({
+          curso,
+          carga
+        });
+      });
+
+      const container = document.getElementById('grades-cargos');
+
+      Object.keys(dados).forEach(cargo => {
+
+        let cursosHTML = '';
+
+        dados[cargo].forEach(item => {
+          cursosHTML += `
+            <li class="collection-item">
+              ${item.curso}
+              <span class="new badge ${item.carga ? 'blue' : 'grey'}">
+                ${item.carga || '—'}
+              </span>
+            </li>
+          `;
+        });
+
+        const bloco = `
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">school</i>
+              ${cargo}
+            </div>
+            <div class="collapsible-body">
+              <ul class="collection">
+                ${cursosHTML}
+              </ul>
+            </div>
+          </li>
+        `;
+
+        container.insertAdjacentHTML('beforeend', bloco);
+      });
+
+      // Inicializa o accordion
+      M.Collapsible.init(
+        document.querySelectorAll('.collapsible'),
+        { accordion: false }
+      );
+
+    })
+    .catch(error => {
+      console.error('Erro ao carregar grades:', error);
+    });
+
 });
