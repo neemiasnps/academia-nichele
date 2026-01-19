@@ -312,18 +312,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const colunas = linha.split('\t');
 
-        const cargo   = colunas[0]?.trim();
-        const curso   = colunas[1]?.trim();
-        const carga   = colunas[2]?.trim();
-        const status  = colunas[3]?.trim().toLowerCase();
+        const cargo  = colunas[0]?.trim();
+        const curso  = colunas[1]?.trim();
+        const carga  = colunas[2]?.trim();
+        const status = colunas[3]?.trim().toLowerCase();
+        const icone  = colunas[4]?.trim() || 'school';
 
         if (status !== 'ativo') return;
 
         if (!dados[cargo]) {
-          dados[cargo] = [];
+          dados[cargo] = {
+            icone: icone,
+            cursos: [],
+            totalHoras: 0
+          };
         }
 
-        dados[cargo].push({
+        // Extrai número da carga horária
+        if (carga) {
+          const horas = parseInt(carga.replace(/\D/g, ''), 10);
+          if (!isNaN(horas)) {
+            dados[cargo].totalHoras += horas;
+          }
+        }
+
+        dados[cargo].cursos.push({
           curso,
           carga
         });
@@ -335,11 +348,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let cursosHTML = '';
 
-        dados[cargo].forEach(item => {
+        dados[cargo].cursos.forEach(item => {
           cursosHTML += `
             <li class="collection-item">
               ${item.curso}
-              <span class="new badge ${item.carga ? 'blue' : 'grey'}">
+              <span class="new badge blue" data-badge-caption="">
                 ${item.carga || '—'}
               </span>
             </li>
@@ -349,8 +362,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const bloco = `
           <li>
             <div class="collapsible-header">
-              <i class="material-icons">school</i>
+              <i class="material-icons">${dados[cargo].icone}</i>
               ${cargo}
+              <span class="new badge green right" data-badge-caption="">
+                ${dados[cargo].totalHoras}h
+              </span>
             </div>
             <div class="collapsible-body">
               <ul class="collection">
@@ -363,7 +379,6 @@ document.addEventListener('DOMContentLoaded', function () {
         container.insertAdjacentHTML('beforeend', bloco);
       });
 
-      // Inicializa o accordion
       M.Collapsible.init(
         document.querySelectorAll('.collapsible'),
         { accordion: false }
