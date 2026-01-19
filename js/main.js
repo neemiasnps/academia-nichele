@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function () {
           iconeHTML = `
             <img src="${info.icone}" 
                  alt="${cargo}" 
-                 style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
+                 style="width:30px;height:24px;border-radius:50%;margin-right:10px;">
           `;
         } else {
           iconeHTML = `
