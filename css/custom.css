@@ -364,9 +364,11 @@ body {
 }
 
 .cargo-avatar {
-  width: 24px;
+  /*width: 24px;*/
   height: 24px;
   border-radius: 50%;
+   margin-left: 0.4rem;
+   margin-right: 1rem;
 }
 
 .cargo-nome {
