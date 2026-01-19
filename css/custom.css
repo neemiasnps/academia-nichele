@@ -347,3 +347,52 @@ body {
   }
 }
 
+/* ================================
+   GRADE DE CURSOS – CARGOS
+================================ */
+
+.cargo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.cargo-icon {
+  font-size: 28px;
+  color: #1976d2;
+}
+
+.cargo-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.cargo-nome {
+  flex-grow: 1;
+}
+
+.badge-carga {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.badge-total {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.curso-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile ajuste */
+@media (max-width: 600px) {
+  .cargo-header {
+    font-size: 0.95rem;
+  }
+}
+
