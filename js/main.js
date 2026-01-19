@@ -322,13 +322,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!dados[cargo]) {
           dados[cargo] = {
-            icone: icone,
+            icone,
             cursos: [],
             totalHoras: 0
           };
         }
 
-        // Soma horas (ex: 8h → 8)
         if (carga) {
           const horas = parseInt(carga.replace(/\D/g, ''), 10);
           if (!isNaN(horas)) {
@@ -336,10 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
 
-        dados[cargo].cursos.push({
-          curso,
-          carga
-        });
+        dados[cargo].cursos.push({ curso, carga });
       });
 
       const container = document.getElementById('grades-cargos');
@@ -348,18 +344,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const info = dados[cargo];
 
-        /* ===== ÍCONE OU IMAGEM ===== */
         let iconeHTML = '';
 
         if (info.icone && info.icone.startsWith('http')) {
           iconeHTML = `
             <img src="${info.icone}" 
                  alt="${cargo}" 
-                 style="width:24px;height:24px;border-radius:50%;margin-right:20px;">
+                 class="cargo-avatar">
           `;
         } else {
           iconeHTML = `
-            <i class="material-icons">
+            <i class="material-icons cargo-icon">
               ${info.icone || 'school'}
             </i>
           `;
@@ -369,9 +364,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         info.cursos.forEach(item => {
           cursosHTML += `
-            <li class="collection-item">
+            <li class="collection-item curso-item">
               ${item.curso}
-              <span class="new badge blue" data-badge-caption="">
+              <span class="badge badge-carga">
                 ${item.carga || '—'}
               </span>
             </li>
@@ -380,10 +375,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const bloco = `
           <li>
-            <div class="collapsible-header">
+            <div class="collapsible-header cargo-header">
               ${iconeHTML}
-              ${cargo}
-              <span class="new badge green right" data-badge-caption="">
+              <span class="cargo-nome">${cargo}</span>
+              <span class="badge badge-total">
                 ${info.totalHoras}h
               </span>
             </div>
@@ -404,8 +399,6 @@ document.addEventListener('DOMContentLoaded', function () {
       );
 
     })
-    .catch(error => {
-      console.error('Erro ao carregar grades:', error);
-    });
+    .catch(error => console.error('Erro ao carregar grades:', error));
 
 });
