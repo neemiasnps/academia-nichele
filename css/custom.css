@@ -391,6 +391,13 @@ body {
   align-items: center;
 }
 
+.badge-cursos {
+  background-color: #455a64;
+  color: #fff;
+  margin-right: 6px;
+}
+
+
 /* Mobile ajuste */
 @media (max-width: 600px) {
   .cargo-header {
