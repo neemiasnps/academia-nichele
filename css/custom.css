@@ -401,6 +401,7 @@ body {
 span.badge {
    color: #ffffff; 
    font-size: 0.95rem;
+   min-width: 5rem;
 }
 
 /* Mobile ajuste */
