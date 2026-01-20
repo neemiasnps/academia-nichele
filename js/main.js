@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function iniciarAutoplay() {
         autoplayInterval = setInterval(() => {
           carouselInstance.next();
-        }, 3000); // tempo mais rápido
+        }, 5000); // tempo meio rápido
       }
 
       function pararAutoplay() {
