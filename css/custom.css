@@ -377,12 +377,12 @@ body {
 
 .badge-carga {
   background-color: #1976d2;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 .badge-total {
-  /*background-color: #2e7d32;*/
-  color: #fff;
+  background-color: #2e7d32;
+  color: #FFFFFF;
 }
 
 .curso-item {
