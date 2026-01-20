@@ -378,9 +378,15 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="collapsible-header cargo-header">
               ${iconeHTML}
               <span class="cargo-nome">${cargo}</span>
+
+              <span class="badge badge-cursos">
+                ${info.cursos.length} cursos
+              </span>
+              
               <span class="badge badge-total">
                 ${info.totalHoras}h
               </span>
+              
             </div>
             <div class="collapsible-body">
               <ul class="collection">
