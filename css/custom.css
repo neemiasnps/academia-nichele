@@ -397,6 +397,10 @@ body {
   margin-right: 6px;
 }
 
+span.badge {
+   color: #ffffff; 
+
+}
 
 /* Mobile ajuste */
 @media (max-width: 600px) {
