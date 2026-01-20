@@ -206,8 +206,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* =====================================================
-   HERO CAROUSEL – BANNERS DINÂMICOS (COM AUTOPLAY + PAUSE)
+   HERO CAROUSEL – BANNERS DINÂMICOS
+   (AUTOPLAY + PAUSE + BOTÃO CONDICIONAL)
 ===================================================== */
+
 document.addEventListener('DOMContentLoaded', function () {
 
   const carouselContainer = document.getElementById('hero-carousel');
@@ -224,22 +226,22 @@ document.addEventListener('DOMContentLoaded', function () {
     .then(tsv => {
 
       const linhas = tsv.split('\n');
-      linhas.shift();
+      linhas.shift(); // remove cabeçalho
 
       linhas.forEach(linha => {
         if (!linha.trim()) return;
 
         const colunas = linha.split('\t');
 
-        const textoBotao = colunas[3];
-        const linkBotao  = colunas[4];
-        const bannerDesk = colunas[5];
-        const bannerMob  = colunas[6];
+        const textoBotao = colunas[3]?.trim();
+        const linkBotao  = colunas[4]?.trim();
+        const bannerDesk = colunas[5]?.trim();
+        const bannerMob  = colunas[6]?.trim();
         const status     = colunas[7]?.trim().toLowerCase();
 
         if (status !== 'ativo') return;
 
-        const banner = isMobile ? bannerMob : bannerDesk;
+        const banner = isMobile && bannerMob ? bannerMob : bannerDesk;
 
         const slide = document.createElement('div');
         slide.className = 'carousel-item';
@@ -247,47 +249,58 @@ document.addEventListener('DOMContentLoaded', function () {
         slide.style.backgroundSize = 'cover';
         slide.style.backgroundPosition = 'center';
 
-        slide.innerHTML = `
-          <div class="carousel-fixed-item center" style="bottom: 40px;">
-            <a href="${linkBotao}" class="btn btn-primary">
-              ${textoBotao}
-            </a>
-          </div>
-        `;
+        /* ===== BOTÃO (SOMENTE SE TIVER TEXTO) ===== */
+        let botaoHTML = '';
+
+        if (textoBotao && linkBotao) {
+
+          const isExterno =
+            linkBotao.startsWith('http://') ||
+            linkBotao.startsWith('https://');
+
+          botaoHTML = `
+            <div class="carousel-fixed-item center carousel-btn">
+              <a href="${linkBotao}"
+                 class="btn btn-primary"
+                 ${isExterno ? 'target="_blank" rel="noopener"' : ''}>
+                ${textoBotao}
+              </a>
+            </div>
+          `;
+        }
+
+        slide.innerHTML = botaoHTML;
 
         carouselContainer.appendChild(slide);
       });
 
-      // Inicializa o carousel
+      /* ===== INICIALIZA CAROUSEL ===== */
       const carouselInstance = M.Carousel.init(carouselContainer, {
         fullWidth: true,
         indicators: true,
         duration: 300
       });
 
-      // Funções de autoplay
+      /* ===== AUTOPLAY ===== */
       function iniciarAutoplay() {
         autoplayInterval = setInterval(() => {
           carouselInstance.next();
-        }, 5000);
+        }, 3000); // tempo mais rápido
       }
 
       function pararAutoplay() {
         clearInterval(autoplayInterval);
       }
 
-      // Inicia autoplay
       iniciarAutoplay();
 
-      // Pausa ao passar o mouse (desktop)
       carouselContainer.addEventListener('mouseenter', pararAutoplay);
-
-      // Retoma ao sair do mouse
       carouselContainer.addEventListener('mouseleave', iniciarAutoplay);
 
     })
     .catch(error => console.error('Erro ao carregar banners:', error));
 });
+
 
 /* =====================================================
    GRADE DE CURSOS EAD OBRIGATÓRIOS
