@@ -395,6 +395,7 @@ body {
   background-color: #455a64;
   color: #ffffff; 
   margin-right: 6px;
+   min-width: 5rem;
 }
 
 span.badge {
