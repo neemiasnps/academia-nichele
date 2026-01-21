@@ -388,19 +388,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const bloco = `
           <li>
-            <div class="collapsible-header cargo-header">
-              ${iconeHTML}
-              <span class="cargo-nome">${cargo}</span>
+           <div class="collapsible-header grade-header">
 
-              <span class="badge badge-cursos">
-                ${info.cursos.length} cursos
-              </span>
-              
-              <span class="badge badge-total">
-                ${info.totalHoras}h
-              </span>
-              
-            </div>
+  <div class="cargo-info">
+    ${iconeHTML}
+    <span class="cargo-nome">${cargo}</span>
+  </div>
+
+  <div class="cargo-badges">
+    <span class="badge badge-cursos">${info.cursos.length} cursos</span>
+    <span class="badge badge-horas">${info.totalHoras}h</span>
+  </div>
+
+</div>
             <div class="collapsible-body">
               <ul class="collection">
                 ${cursosHTML}
