@@ -354,7 +354,7 @@ body {
 .cargo-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1px;
   font-weight: 500;
 }
 
