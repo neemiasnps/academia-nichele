@@ -408,6 +408,5 @@ span.badge {
 @media (max-width: 600px) {
   .cargo-header {
     font-size: 0.95rem;
-   align-items: flex-start;
   }
 }
