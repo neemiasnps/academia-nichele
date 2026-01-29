@@ -1,11 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* ===============================
-     MENU MOBILE
+     MENU MOBILE (SIDENAV)
   =============================== */
   const sidenav = document.querySelectorAll(".sidenav");
   if (sidenav.length) {
     M.Sidenav.init(sidenav);
+  }
+
+  /* ===============================
+     DROPDOWN MENU (CURSOS)
+  =============================== */
+  const dropdowns = document.querySelectorAll(".dropdown-trigger");
+  if (dropdowns.length) {
+    M.Dropdown.init(dropdowns, {
+      coverTrigger: false,
+      constrainWidth: false
+    });
   }
 
   /* ===============================
@@ -16,12 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
     M.FormSelect.init(selects);
   }
 
-});
+  /* ===============================
+     COLLAPSIBLE (GRADES / CARGOS)
+  =============================== */
+  const collapsibles = document.querySelectorAll(".collapsible");
+  if (collapsibles.length) {
+    M.Collapsible.init(collapsibles, {
+      accordion: false // permite abrir vários
+    });
+  }
 
-const collapsibles = document.querySelectorAll(".collapsible");
-  M.Collapsible.init(collapsibles, {
-    accordion: false // permite abrir vários cargos
-  });
+});
 
 /* =====================================================
    FUNÇÃO PARA ENVIO DE E-MAIL (CONTATO)
