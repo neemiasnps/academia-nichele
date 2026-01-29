@@ -411,7 +411,8 @@ span.badge {
   }
 }
 
-/* Ajuste de recuo do dropdown Cursos */
-#dropdown-cursos {
-  transform: translateX(-20px);
+/* Ajuste de recuo do menu*/
+nav ul.right {
+  margin-right: 20px;
 }
+
