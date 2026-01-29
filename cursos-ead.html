@@ -28,27 +28,49 @@
 
 <body>
 
- <!-- NAVBAR -->
+  <!-- NAVBAR -->
   <!-- <nav class="nav-extended"> -->
   <nav>
      <div class="nav-wrapper">
     <!--<div class="nav-wrapper container">-->
-      <a href="index.html" class="brand-logo">
+      <a href="#" class="brand-logo">
         <img src="img/logo.png" alt="logo" class="logo">
       </a>
       <a href="#" data-target="mobile-menu" class="sidenav-trigger">
         <i class="material-icons">menu</i>
       </a>
 
+       <!-- Dropdown Cursos -->
+    <ul id="dropdown-cursos" class="dropdown-content">
+      <li><a href="cursos-presenciais.html">Cursos Presenciais</a></li>
+      <li><a href="cursos-ead.html">Cursos EAD</a></li>
+    </ul>
+
       <ul class="right hide-on-med-and-down">
-        <li><a href="index.html">Início</a></li>
+        <li class="active"><a href="index.html">Início</a></li>
+
+      <!-- Dropdown Cursos -->
+      <li>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown-cursos">
+          Cursos<i class="material-icons right">arrow_drop_down</i>
+        </a>
+      </li>
+
+        <!--
         <li><a href="cursos-presenciais.html">Cursos Presenciais</a></li>
-        <li class="active"><a href="cursos-ead.html">Cursos EAD</a></li>
+        <li><a href="cursos-ead.html">Cursos EAD</a></li>
+        -->
+        
         <li><a href="grades.html">Grades</a></li>
         <li><a href="programas-td.html">Programas T&D</a></li>
         <li><a href="biblioteca-nichele.html">Biblioteca Nichele</a></li>
         <li><a href="contato.html">Contato</a></li>
         <li><a href="agenda.html"><i class="material-icons">event</i></a></li>
+        <!--<li>
+          <a class="btn btn-cta" href="https://escola.nichele.com.br" target="_blank">
+              Acessar Plataforma
+          </a>
+        </li>-->
       </ul>
     </div>
   </nav>
