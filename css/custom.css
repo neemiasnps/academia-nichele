@@ -410,3 +410,8 @@ span.badge {
     font-size: 0.95rem;
   }
 }
+
+/* Ajuste de recuo do dropdown Cursos */
+#dropdown-cursos {
+  transform: translateX(-20px);
+}
