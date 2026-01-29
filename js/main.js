@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ===============================
      MENU MOBILE (SIDENAV)
+     Abre e fecha o menu no celular
   =============================== */
   const sidenav = document.querySelectorAll(".sidenav");
   if (sidenav.length) {
@@ -10,17 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ===============================
      DROPDOWN MENU (CURSOS)
+     Menu suspenso: Presencial e EAD
   =============================== */
   const dropdowns = document.querySelectorAll(".dropdown-trigger");
   if (dropdowns.length) {
     M.Dropdown.init(dropdowns, {
-      coverTrigger: false,
-      constrainWidth: false
+      coverTrigger: false,     // não cobre o botão
+      constrainWidth: false    // largura automática
     });
   }
 
   /* ===============================
      SELECTS (FORMULÁRIOS)
+     Estilização dos selects
   =============================== */
   const selects = document.querySelectorAll("select");
   if (selects.length) {
@@ -29,15 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ===============================
      COLLAPSIBLE (GRADES / CARGOS)
+     Permite abrir vários cargos
   =============================== */
   const collapsibles = document.querySelectorAll(".collapsible");
   if (collapsibles.length) {
     M.Collapsible.init(collapsibles, {
-      accordion: false // permite abrir vários
+      accordion: false
     });
   }
 
 });
+
 
 /* =====================================================
    FUNÇÃO PARA ENVIO DE E-MAIL (CONTATO)
