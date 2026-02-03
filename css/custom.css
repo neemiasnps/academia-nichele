@@ -290,7 +290,8 @@ body {
 
 /* Altura padrão do carousel (desktop) */
 .carousel.carousel-slider {
-  height: 420px;                 /* Altura ideal para destaque sem exagero */
+  /*height: 420px;                 /* Altura ideal para destaque sem exagero */
+   height: 530px;
 }
 
 /* Cada slide do carousel */
