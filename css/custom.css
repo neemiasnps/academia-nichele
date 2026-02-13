@@ -88,6 +88,7 @@ body {
 .cta-final a {
   color: #ffffff;
   transition: all 0.3s ease;
+   position: relative;
 }
 
 .cta-final a:hover {
@@ -108,6 +109,21 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.cta-final a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.cta-final a:hover::after {
+  width: 100%;
 }
 
 /* =========================================================
