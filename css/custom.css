@@ -95,7 +95,7 @@ body {
 .cta-final a {
   color: #ffffff;
   transition: all 0.3s ease;
-   position: relative;
+position: relative;
 }
 
 .cta-final a:hover {
@@ -118,7 +118,7 @@ body {
   gap: 8px;
 }
 
-.cta-final a::after {
+/* .cta-final a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -131,7 +131,7 @@ body {
 
 .cta-final a:hover::after {
   width: 100%;
-}
+} */
 
 /* =========================================================
    RODAPÉ
