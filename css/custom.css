@@ -79,10 +79,20 @@ body {
 .cta-final {
   background-color: var(--cor-primaria);
   color: #ffffff;
+  border-top: 4px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .cta-final a {
   color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.cta-final a:hover {
+  color: #e3f2fd;
+  transform: translateX(4px);
 }
 
 .cta-final ul {
@@ -91,7 +101,7 @@ body {
 }
 
 .cta-final ul li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .cta-final ul li a {
