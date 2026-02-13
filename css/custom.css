@@ -81,6 +81,25 @@ body {
   color: #ffffff;
 }
 
+.cta-final a {
+  color: #ffffff;
+}
+
+.cta-final ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cta-final ul li {
+  margin-bottom: 8px;
+}
+
+.cta-final ul li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* =========================================================
    RODAPÉ
 ========================================================= */
