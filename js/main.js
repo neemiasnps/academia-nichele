@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /* =====================================================
    CARREGAR CURSOS EAD
 ===================================================== */
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
 
   const container = document.getElementById('lista-cursos-ead');
   if (!container) return;
@@ -224,6 +224,75 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     })
     .catch(error => console.error('Erro ao carregar cursos EAD:', error));
+});*/
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const container = document.getElementById('lista-cursos-ead');
+  if (!container) return;
+
+  const API_URL = "https://SEU-REPLIT.replit.app/api/cursos/ead";
+
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(result => {
+
+      const cursos = result.data || [];
+
+      cursos.forEach(curso => {
+
+        const mensagemWhats = encodeURIComponent(
+          `Olá! Gostaria de solicitar inscrição no curso EAD: ${curso.titulo}`
+        );
+
+        const linkWhats =
+          `https://wa.me/5541998000484?text=${mensagemWhats}`;
+
+        const card = `
+          <div class="col s12 m6 l4">
+            <div class="card curso-card">
+
+              <div class="card-image curso-img">
+                <img class="activator" src="${curso.imagem_url}" alt="${curso.titulo}">
+              </div>
+
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">
+                  ${curso.titulo}
+                  <i class="material-icons right">more_vert</i>
+                </span>
+
+                <p>
+                  <strong>Tipo:</strong> ${curso.tipo}<br>
+                  <strong>Carga horária:</strong> ${curso.carga_horaria}h
+                </p>
+              </div>
+
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">
+                  Objetivo
+                  <i class="material-icons right">close</i>
+                </span>
+
+                <p>${curso.objetivo || ''}</p>
+              </div>
+
+              <div class="card-action card-action-whats">
+                <a href="${linkWhats}" target="_blank" class="btn btn-primary">
+                  solicitar inscrição
+                </a>
+              </div>
+
+            </div>
+          </div>
+        `;
+
+        container.insertAdjacentHTML('beforeend', card);
+      });
+
+    })
+    .catch(error => console.error('Erro ao carregar cursos EAD:', error));
+
 });
 
 /* =====================================================
